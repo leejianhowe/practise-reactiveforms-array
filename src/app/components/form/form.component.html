@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+  <input type="text" formControlName="blk" />
+  <input type="text" formControlName="unitNo" />
+  <div formArrayName="orders">
+    <div *ngFor="let item of form.controls.orders?.value; let index = index">
+      <div [formGroupName]="index">
+        <input type="text" formControlName="item" />
+        <input type="text" formControlName="qty" />
+        <input type="text" formControlName="id" />
+      </div>
+    </div>
+  </div>
+  <button type="button" (click)="addItem()">Add</button>
+  <button type="button" (click)="onSubmit()">Submit</button>
+</form>
